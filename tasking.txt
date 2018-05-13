@@ -1,0 +1,52 @@
+#1 get items' information
+Inputs: selectedItems: [string],
+amountInfo：[{
+  barcode: string,
+  amount: int
+}]: countAmount(),
+allItemsInfo: [{
+  barcode: string,
+  name: string,
+  unit: string,
+  price: float
+}]: loadAllItems()
+Output: itemsInfo: [{
+  barcode: string,
+  name: string,
+  amount: int,
+  unit: string,
+  price: float
+}]
+
+#2 count items' amount
+Input: selectedItems
+Output: amountInfo: getItemsInfo()
+
+#3 compute price
+Input: itemsInfo,
+promotionsInfo: {
+  type: string,
+  barcodes: [string]}: loadPromotions()
+Output :inventory: {
+  items: [{
+    barcode: string,
+    name: string,
+    amount: int,
+    unit: string,
+    price: float,
+    priceSum: float
+  }],
+  promotions: [{
+    name：string,
+    savedAmount: int,
+    unit: string
+  }],
+  price: {
+    totalPrice: float,
+    totalSave: float
+  }
+}
+
+#4 Print inventory
+Input: inventory
+Output: receipt: string: console.log()
